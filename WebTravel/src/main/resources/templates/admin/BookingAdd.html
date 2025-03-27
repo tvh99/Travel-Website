@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/home/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Thêm mới hoặc sửa điểm đến</title>
+    <style>
+        .row
+        {
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-th-list"></i> Quản lý Booking</h1>
+            <p>Danh sách thông tin Booking trong hệ thống</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="tile">
+                                <div class="tile-body">
+                                    <form action="#" method="post" th:action="@{/admin/booking/them}" th:object="${obj}">
+                                        <fieldset>
+                                            <legend>Nhập thông tin Booking</legend>
+                                            <div class="container-fluid">
+
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        PackageId:
+                                                    </label>
+                                                    <div class="col-md-4">
+<!--                                                        <input type="text" class="form-control" th:field="*{packageID}"/>-->
+                                                        <select th:field="*{packageID}" th:class="form-control">
+                                                            <option value="" label="Gói du lịch"/>
+                                                            <th:block th:each="c : ${lstGDL}">
+                                                                <option th:value="${c.packageId}">[[${c.tenGoi}]]</option>
+                                                            </th:block>
+                                                        </select>
+                                                        <input type="hidden" th:field="*{bookingID}" class="form-control" th:value="${obj.bookingID}"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Ngay dat phong:
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input style="font-size: 15px" type="text" id="datepicker1" class="form-control" th:field="*{ngayDatPhong}" placeholder="dd/MM/yyyy"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Ngay du lich:
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input style="font-size: 15px" type="text" id="datepicker2" class="form-control" th:field="*{ngayDuLich}" placeholder="dd/MM/yyyy"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Tong chi phi:
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" th:field="*{tongChiPhi}"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Ngay sinh:
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input style="font-size: 15px" type="text" id="datepicker3" class="form-control" th:field="*{ngaySinh}" placeholder="dd/MM/yyyy"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Họ tên:
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" th:field="*{hoTen}"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Email:
+                                                    </label>
+                                                    <div class="col-md-4">
+                                                        <input type="text" class="form-control" th:field="*{email}"/>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <label class="col-md-2">
+                                                        Dia chi:
+                                                    </label>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" th:field="*{diaChi}"/>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-md-2"></div>
+                                                    <div class="col-md-4">
+                                                        <input type="submit" class="btn btn-primary" name="btnCapNhat" value="Cập nhật"/>
+                                                        &nbsp;
+                                                        <a th:href="@{/admin/booking}" class="btn btn-primary">Trở về</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

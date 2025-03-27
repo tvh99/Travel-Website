@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Tour Du lịch</title>
+</head>
+<body>
+
+
+<div layout:fragment="content">
+
+    <div th:replace="home/banner :: banner"></div>
+
+    <!-- Booking Start -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile" style="height: 200px;">
+                <div class="container-fluid booking mt-5 pb-5">
+                    <div class="container pb-5">
+                        <div class="bg-light shadow p-4">
+                            <form method="post" th:action="@{/tourpackage}" th:object="${goidl}">
+                                <fieldset>
+                                    <div class="row align-items-center">
+
+                                        <!--Địa Điểm -->
+                                        <div class="col-md-4">
+                                            <div class="d-flex align-items-center">
+                                                <label for="idDiemDen" class="form-label mb-0">Địa Điểm:</label>
+                                                <select id="idDiemDen" th:field="*{idDiemDen}" class="form-control">
+                                                    <option value="">Chọn Địa Điểm</option>
+                                                    <th:block th:each="g : ${lstDiemDen}">
+                                                        <option th:value="${g.diemDenId}" th:text="${g.tenDiemDen}"></option>
+                                                    </th:block>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <!-- Từ Giá -->
+                                        <div class="col-md-3">
+                                            <div class="d-flex align-items-center">
+                                                <label for="giaTu" class="form-label mb-0 me-2">Từ giá:</label>
+                                                <input type="text" id="giaTu" th:field="*{giaTu}" class="form-control"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Đến Giá -->
+                                        <div class="col-md-3">
+                                            <div class="d-flex align-items-center">
+                                                <label for="giaDen" class="form-label mb-0 me-2">Đến giá:</label>
+                                                <input type="text" id="giaDen" th:field="*{giaDen}" class="form-control"/>
+                                            </div>
+                                        </div>
+
+                                        <!-- Nút Tìm Kiếm -->
+                                        <div class="col-md-2">
+                                            <button type="submit" class="btn btn-primary w-100">Tìm Tour</button>
+                                        </div>
+
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Booking End -->
+
+
+    <!--packages start-->
+
+    <div class="container-fluid py-5">
+        <div class="container pt-5 pb-3">
+            <div class="text-center mb-3 pb-3">
+                <h6 class="text-primary text-uppercase" style="letter-spacing: 5px;">Gói du lịch</h6>
+                <h1>Tour Du lịch</h1>
+            </div>
+
+            <div class="row">
+                <th:block th:each="g : ${lstGoi}">
+                    <div class="col-lg-4 col-md-6 mb-4">
+                        <div class="package-item bg-white mb-2">
+                            <img class="img-fluid" th:src="@{'/img/' + ${g.anh}}" alt="img">
+                            <div class="p-4">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <small class="m-0"><i class="fa fa-map-marker-alt text-primary mr-2" th:text="${g.packageId}"></i></small>
+                                    <small class="m-0"><i class="fa fa-calendar-alt text-primary mr-2"></i>5 days</small>
+                                    <small class="m-0"><i class="fa fa-user text-primary mr-2"></i>Many Person</small>
+                                </div>
+                                <a class="h5 text-decoration-none" th:text="${g.tenGoi}"
+                                   th:href="@{'/chitiet/' + ${g.packageId}}"></a>
+                                <div class="border-top mt-4 pt-4">
+                                    <div class="d-flex justify-content-between">
+                                        <h6 class="m-0"><i class="fa fa-star text-primary mr-2"></i>4.5 <small>(250)</small></h6>
+                                        <h5 class="m-0"
+                                            th:text="${#numbers.formatDecimal(g.giaGoi, 0, 'POINT', 0, 'COMMA') + 'đ'}"
+                                            th:data-raw="${g.giaGoi}" th:data-sort="${g.giaGoi}">đ</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </th:block>
+            </div>
+        </div>
+    </div>
+    <!--packages end-->
+
+
+</div>
+</body>
+</html>

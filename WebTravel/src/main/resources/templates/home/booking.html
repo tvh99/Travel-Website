@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>booking</title>
+</head>
+<body>
+<div th:fragment="booking">
+<!--    <div class="row">-->
+<!--        <div class="col-md-12">-->
+<!--            <div class="tile" style="height: 200px">-->
+<!--                <div class="container-fluid booking mt-5 pb-5">-->
+<!--                    <div class="container pb-5">-->
+<!--                        <div class="bg-light shadow" style="padding: 30px;">-->
+<!--                            <div>-->
+<!--                                <div >-->
+<!--                                    <form method="post" th:action="@{/trang-chu}" th:object="${lstGDL}">-->
+<!--                                        <fieldset>-->
+<!--                                            &lt;!&ndash;                        <legend class="legend">Nhập thông tin tìm kiếm</legend>&ndash;&gt;-->
+<!--                                            <div class="row">-->
+<!--                                                <div class="col-md-1"></div>-->
+<!--                                                <div class="col-md-1 d-flex align-items-center justify-content-end">Từ-->
+<!--                                                    giá:-->
+<!--                                                </div>-->
+<!--                                                <div class="input col-md-2">-->
+<!--                                                    <input type="text" th:field="*{giaTu}" th:class="form-control"-->
+<!--                                                           placeholder="Giá từ"/>-->
+
+<!--                                                </div>-->
+<!--                                                <div class="col-md-1 d-flex align-items-center justify-content-end">Đến:-->
+
+<!--                                                </div>-->
+<!--                                                <div class="input col-md-2">-->
+<!--                                                    <input type="text" th:field="*{giaDen}" th:class="form-control"-->
+<!--                                                           placeholder="Đến giá"/>-->
+<!--                                                </div>-->
+<!--                                                <div class="col-md-1 d-flex align-items-center justify-content-end">-->
+
+<!--                                                </div>-->
+<!--                                                <div class="input col-md-2">-->
+<!--                                                    <select th:field="*{idDiemDen}" th:class="form-control">-->
+<!--                                                        <option value="" label="Điểm đến"></option>-->
+<!--                                                        <th:block th:each="g : ${lstDiemDen}">-->
+<!--                                                            <option th:value="${g.diemDenId}"-->
+<!--                                                                    th:text="${g.tenDiemDen}"></option>-->
+<!--                                                        </th:block>-->
+<!--                                                    </select>-->
+<!--                                                </div>-->
+<!--                                                <div th:class="col-md-2">-->
+<!--                                                    <button type="submit" class="btn btn-primary"  >Tìm kiếm</button>-->
+<!--                                                </div>-->
+<!--                                            </div>-->
+<!--                                            <div style="height: 20px"></div>-->
+<!--                                            <div class="row">-->
+<!--                                                <div class="col-md-1"></div>-->
+
+<!--                                            </div>-->
+<!--                                        </fieldset>-->
+<!--                                    </form>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+</div>
+</body>
+</html>

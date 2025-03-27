@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trang Quản Trị</title>
+</head>
+<body>
+<div th:fragment="menu">
+    <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
+    <aside class="app-sidebar">
+        <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="/img/fz.jpg" width="70" height="60" alt="User Image">
+            <div>
+                <p class="app-sidebar__user-name">TVH</p>
+                <p class="app-sidebar__user-designation">FE Developer</p>
+            </div>
+        </div>
+        <ul class="app-menu">
+            <li><a class="app-menu__item" href="/admin/goi"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Quản lý gói du lịch</span></a></li>
+            <li><a class="app-menu__item" href="/admin/diemden"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Quản lý điểm đến</span></a></li>
+            <li><a class="app-menu__item" href="/admin/booking"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Thông tin đặt gói du lịch</span></a></li>
+            <li><a class="app-menu__item" href="/admin/nguoidung"><i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">Quản lý Người dùng</span></a></li>
+
+        </ul>
+    </aside>
+</div>
+</body>
+</html>

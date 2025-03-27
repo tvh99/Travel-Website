@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{home/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Service</title>
+</head>
+<body>
+<div layout:fragment="content">
+
+    <!-- Header Start -->
+    <div class="container-fluid page-header">
+        <div class="container">
+            <div class="d-flex flex-column align-items-center justify-content-center" style="min-height: 400px">
+                <h3 class="display-4 text-white text-uppercase">Dịch vụ</h3>
+                <div class="d-inline-flex text-white">
+                    <p class="m-0 text-uppercase"><a class="text-white" href="">Trang chủ</a></p>
+                    <i class="fa fa-angle-double-right pt-1 px-3"></i>
+                    <p class="m-0 text-uppercase">Dịch vụ</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Header End -->
+
+    <!-- Booking Start -->
+    <div th:replace="home/booking :: booking"></div>
+    <!-- Booking End -->
+
+    <!-- service Start-->
+    <div th:replace="home/service :: service"></div>
+    <!-- service End -->
+    <!-- Team Start -->
+    <div th:replace="home/teamstart :: teamstart"></div>
+    <!-- Team End -->
+</div>
+</body>
+</html>

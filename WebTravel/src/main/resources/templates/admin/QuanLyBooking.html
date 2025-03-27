@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{admin/home/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý thông tin điểm đến</title>
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="app-title">
+        <div>
+            <h1><i class="fa fa-th-list"></i> Quản lý booking</h1>
+            <p>Danh sách thông tin booking trong hệ thống</p>
+        </div>
+        <ul class="app-breadcrumb breadcrumb side">
+            <li class="breadcrumb-item"><i class="fa fa-home fa-lg"></i></li>
+            <li class="breadcrumb-item">Tables</li>
+            <li class="breadcrumb-item active"><a href="#">Data Table</a></li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="tile">
+                <div class="tile-body">
+
+                    <div style="text-align: right; width:100%;">
+
+                        <a th:href="@{/admin/booking/them}"  ></a>
+                    </div>
+                    <table class="table table-striped table-bordered" id="sampleTable">
+                        <thead>
+                        <tr>
+                            <th>Mã TT</th>
+                            <th>Mã gói du lịch</th>
+                            <th>Ngày đặt phòng </th>
+                            <th>Ngày du lịch</th>
+                            <th>Số tiền</th>
+                            <th>Ngày sinh</th>
+                            <th>Họ tên</th>
+                            <th>Email</th>
+                            <th>Địa chỉ</th>
+
+                            <th style="width:40px;"></th>
+                            <th style="width:40px;"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="b : ${lstBooking}">
+
+                            <td th:text="${b.bookingID}"></td>
+                            <td th:text="${b.packageID}"></td>
+                            <td>[[${b.ngayDatPhong}]]</td>
+                            <td>[[${b.ngayDuLich}]]</td>
+                            <td th:text="${b.tongChiPhi}"></td>
+
+                            <td>[[${b.ngaySinh}]]</td>
+                            <td>[[${b.hoTen}]]</td>
+                            <td>[[${b.email}]]</td>
+                            <td>[[${b.diaChi}]]</td>
+
+
+                            <td><a class="btn btn-primary" th:href="@{'/admin/booking/sua/' + ${b.bookingID}}">Sửa</a></td>
+                            <td><a class="btn btn-danger" th:href="@{'/admin/booking/xoa/' + ${b.bookingID}}" onclick="return confirm('Bạn có chắc chắn muốn xóa thông tin này ?');">Xóa</a></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
